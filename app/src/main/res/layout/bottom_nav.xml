@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<com.gauravk.bubblenavigation.BubbleNavigationLinearView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:elevation="4dp" android:padding="12dp"
+        app:bnc_mode="spread">
+
+    <com.gauravk.bubblenavigation.BubbleToggleView
+            android:id="@+id/tab_home"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            app:bt_active="true"
+            app:bt_colorActive="@color/colorPrimaryDark"
+            app:bt_colorInactive="@color/dark_gray"
+            app:bt_icon="@drawable/ic_home"
+            app:bt_shape="@drawable/transition_background_drawable_home"
+            app:bt_title="@string/home"
+            app:bt_padding="@dimen/padding_8dp"
+            app:bt_titlePadding="@dimen/padding_8dp"/>
+
+    <com.gauravk.bubblenavigation.BubbleToggleView
+            android:id="@+id/tab_profile"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            app:bt_active="true"
+            app:bt_colorActive="@color/colorPrimaryDark"
+            app:bt_colorInactive="@color/dark_gray"
+            app:bt_icon="@drawable/ic_profile"
+            app:bt_shape="@drawable/transition_background_drawable_home"
+            app:bt_title="@string/profile"
+            app:bt_padding="@dimen/padding_8dp"
+            app:bt_titlePadding="@dimen/padding_8dp"/>
+
+    <!-- Add more child items here - max upto 5 -->
+
+</com.gauravk.bubblenavigation.BubbleNavigationLinearView>
