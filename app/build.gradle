@@ -42,12 +42,12 @@ android {
 
     buildTypes {
         debug {
-            buildConfigField("String", "BASE_URL", "\"go-aplikasi.co\"")
+            buildConfigField("String", "BASE_URL", "\"skripsi.pro\"")
         }
         release {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            buildConfigField("String", "BASE_URL", "\"go-aplikasi.co\"")
+            buildConfigField("String", "BASE_URL", "\"skripsi.pro\"")
             //shrinkResources true
             //zipAlignEnabled true
             //pseudoLocalesEnabled true
