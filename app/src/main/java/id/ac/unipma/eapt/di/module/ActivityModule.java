@@ -27,6 +27,9 @@ import id.ac.unipma.eapt.ui.register.RegisterPresenter;
 import id.ac.unipma.eapt.ui.register.RegisterView;
 import id.ac.unipma.eapt.ui.splash.SplashMvpPresenter;
 import id.ac.unipma.eapt.ui.splash.SplashView;
+import id.ac.unipma.eapt.ui.student.StudentMvpPresenter;
+import id.ac.unipma.eapt.ui.student.StudentPresenter;
+import id.ac.unipma.eapt.ui.student.StudentView;
 import id.ac.unipma.eapt.utils.rx.AppSchedulerProvider;
 import id.ac.unipma.eapt.utils.rx.SchedulerProvider;
 
@@ -124,6 +127,13 @@ public class ActivityModule {
     @Provides
     AccountMvpPresenter<AccountView> provideAccountPresenter(
             AccountPresenter<AccountView> presenter) {
+        return presenter;
+    }
+
+    @Provides
+    @PerActivity
+    StudentMvpPresenter<StudentView> provideStudentPresenter(
+        StudentPresenter<StudentView> presenter) {
         return presenter;
     }
 

@@ -10,6 +10,7 @@ import id.ac.unipma.eapt.ui.splash.SplashActivity;
 import dagger.Component;
 import id.ac.unipma.eapt.di.PerActivity;
 import id.ac.unipma.eapt.di.module.ActivityModule;
+import id.ac.unipma.eapt.ui.student.StudentActivity;
 
 /**
  * Copyright 2017 Winnerawan T
@@ -35,4 +36,6 @@ public interface ActivityComponent {
     void inject(HomeFragment homeFragment);
 
     void inject(AccountFragment accountFragment);
+
+    void inject(StudentActivity studentActivity);
 }

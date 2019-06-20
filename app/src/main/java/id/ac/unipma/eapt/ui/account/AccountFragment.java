@@ -1,5 +1,6 @@
 package id.ac.unipma.eapt.ui.account;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -7,9 +8,11 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import id.ac.unipma.eapt.R;
 import id.ac.unipma.eapt.di.component.ActivityComponent;
 import id.ac.unipma.eapt.ui.base.BaseFragment;
+import id.ac.unipma.eapt.ui.student.StudentActivity;
 import id.ac.unipma.eapt.utils.AppLogger;
 
 import javax.inject.Inject;
@@ -44,8 +47,24 @@ public class AccountFragment extends BaseFragment implements AccountView {
         return view;
     }
 
+    @OnClick(R.id.container_step1)
+    void step1() {
+        presenter.decideActivty();
+    }
+
     @Override
     protected void setUp(View view) {
         AppLogger.e("ACCOUNT FRAGMENT");
+    }
+
+    @Override
+    public void gotoStudent() {
+        startActivity(new Intent(getBaseActivity(), StudentActivity.class));
+    }
+
+    @Override
+    public void gotoGeneral() {
+        //todo
+        startActivity(new Intent(getBaseActivity(), StudentActivity.class));
     }
 }

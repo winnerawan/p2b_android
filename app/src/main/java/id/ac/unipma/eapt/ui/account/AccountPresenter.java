@@ -13,4 +13,13 @@ public class AccountPresenter<V extends AccountView> extends BasePresenter<V> im
     public AccountPresenter(DataManager dataManager, SchedulerProvider schedulerProvider, CompositeDisposable compositeDisposable) {
         super(dataManager, schedulerProvider, compositeDisposable);
     }
+
+    @Override
+    public void decideActivty() {
+        if (getDataManager().isStudent()==1) {
+            getMvpView().gotoStudent();
+        } else {
+            getMvpView().gotoGeneral();
+        }
+    }
 }

@@ -7,8 +7,11 @@ import javax.inject.Singleton;
 
 import id.ac.unipma.eapt.data.db.DbHelper;
 import id.ac.unipma.eapt.data.network.ApiHelper;
+import id.ac.unipma.eapt.data.network.model.LoginResponse;
+import id.ac.unipma.eapt.data.network.model.Resp;
 import id.ac.unipma.eapt.data.prefs.PreferencesHelper;
 import id.ac.unipma.eapt.di.ApplicationContext;
+import io.reactivex.Single;
 
 /**
  * Copyright 2017 Winnerawan T
@@ -65,5 +68,24 @@ public class AppDataManager implements DataManager {
         mPreferencesHelper.setFirstTime(isFirstTime);
     }
 
+    @Override
+    public Single<LoginResponse> login(String email, String password) {
+        return mApiHelper.login(email, password);
+    }
+
+    @Override
+    public Single<Resp> register(String email, String password, int type) {
+        return mApiHelper.register(email, password, type);
+    }
+
+    @Override
+    public void setIsStudent(int isStudent) {
+        mPreferencesHelper.setIsStudent(isStudent);
+    }
+
+    @Override
+    public int isStudent() {
+        return mPreferencesHelper.isStudent();
+    }
 }
 

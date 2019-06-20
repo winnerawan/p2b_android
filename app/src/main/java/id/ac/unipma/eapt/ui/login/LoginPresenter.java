@@ -1,8 +1,10 @@
 package id.ac.unipma.eapt.ui.login;
 
+import com.androidnetworking.error.ANError;
 import id.ac.unipma.eapt.R;
 import id.ac.unipma.eapt.data.DataManager;
 import id.ac.unipma.eapt.ui.base.BasePresenter;
+import id.ac.unipma.eapt.utils.AppLogger;
 import id.ac.unipma.eapt.utils.CommonUtils;
 import id.ac.unipma.eapt.utils.rx.SchedulerProvider;
 import io.reactivex.disposables.CompositeDisposable;
@@ -27,7 +29,26 @@ public class LoginPresenter<V extends LoginView> extends BasePresenter<V> implem
         if (pass.isEmpty()) {
             getMvpView().onError(R.string.message_empty_password);
         }
+        getCompositeDisposable().add(getDataManager().login(email, pass)
+                .observeOn(getSchedulerProvider().ui())
+                .subscribeOn(getSchedulerProvider().io())
+                .subscribe(resp -> {
+                    if (resp.getError()) {
+                        return;
+                    }
+                    getMvpView().gotoMainActivity();
+                    getDataManager().setLoggedIn(true);
+                }, throwable -> {
+                    if (throwable instanceof ANError) {
+                        ANError anError = (ANError) throwable;
+                        AppLogger.e(" Error Body = "+anError.getErrorBody());
+                        AppLogger.e(" Message = "+anError.getMessage());
+                        AppLogger.e(" Response = "+anError.getResponse());
+                        AppLogger.e(" Error Code = "+anError.getErrorCode());
+                        handleApiError(anError);
+                    }
 
+                }));
 
     }
 }

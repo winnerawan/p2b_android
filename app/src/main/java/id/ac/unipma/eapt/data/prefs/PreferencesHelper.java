@@ -15,5 +15,7 @@ public interface PreferencesHelper {
     boolean isFirstTime();
     void setFirstTime(boolean isFirstTime);
 
+    void setIsStudent(int isStudent);
+    int isStudent();
 
 }

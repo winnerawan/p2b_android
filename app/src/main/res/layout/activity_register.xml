@@ -44,42 +44,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-        <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/user1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColorHint="@color/colorAccent"
-                android:textColor="#000000">
 
-            <EditText
-                    android:id="@+id/txt_user"
-                    android:textSize="16sp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Username"
-                    android:layout_marginLeft="46dp"
-                    android:layout_marginRight="46dp"
-                    android:textColorHint="@color/colorAccent"
-                    android:textColor="#000000"
-                    android:maxLength="12"
-                    android:background="#0000"
-                    android:padding="16dp"
-                    android:gravity="left"
-                    android:drawableLeft="@drawable/user"
-                    android:drawablePadding="12dp"
-
-
-
-            />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <View
-                android:layout_width="match_parent"
-                android:layout_marginLeft="56dp"
-                android:layout_marginRight="56dp"
-                android:layout_height="1dp"
-                android:background="@color/colorAccent"/>
 
         <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/email1"
@@ -95,15 +60,15 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Email"
+                    android:inputType="textEmailAddress"
                     android:layout_marginLeft="46dp"
                     android:layout_marginRight="46dp"
                     android:textColorHint="@color/colorAccent"
                     android:textColor="#000000"
-                    android:maxLength="12"
                     android:background="#0000"
                     android:padding="16dp"
                     android:gravity="left"
-                    android:drawableLeft="@android:drawable/sym_action_email"
+                    android:drawableLeft="@drawable/user"
                     android:drawablePadding="12dp"
 
 
@@ -130,7 +95,7 @@
 
 
             <EditText
-                    android:imeOptions="actionDone"
+                    android:imeOptions="actionNext"
                     android:id="@+id/txt_pass"
                     android:textSize="16sp"
                     android:layout_width="match_parent"
@@ -149,6 +114,23 @@
 
             />
         </com.google.android.material.textfield.TextInputLayout>
+
+        <View
+                android:layout_width="match_parent"
+                android:layout_marginLeft="56dp"
+                android:layout_marginRight="56dp"
+                android:layout_height="1dp"
+                android:background="@color/colorAccent"/>
+
+        <Spinner
+                android:layout_marginLeft="56dp"
+                android:layout_marginRight="56dp"
+                android:layout_marginTop="@dimen/padding_16dp"
+                android:background="@drawable/shape_et"
+                android:id="@+id/spinner_user_type"
+                android:layout_height="40dp"
+                android:layout_width="match_parent" />
+
 
         <View
                 android:layout_width="match_parent"
@@ -206,7 +188,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/rect1"
-                android:text="Sign in"
+                android:text="Sign Up"
                 android:textSize="16sp"
                 android:textColor="#fff"
                 android:gravity="center"

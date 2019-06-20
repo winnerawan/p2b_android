@@ -18,4 +18,14 @@
     <string name="eapt">English for Academic Proficiency Test</string>
     <string name="dont_have_account_register">Not Registered? Sign Up Now</string>
     <string name="have_account_login">Already Registered? Sign In</string>
+    <string name="text_edit">Edit</string>
+    <string name="text_input_data">Input Data</string>
+    <string name="text_upload">Upload</string>
+    <string name="text_change_language">Change Language</string>
+    <string name="logout">Logout</string>
+    <string name="no_reg">Registration Number</string>
+    <string name="nim">NIM</string>
+    <string name="fullname">Fullname</string>
+    <string name="dob">Date of Birth</string>
+    <string name="save">Save</string>
 </resources>

@@ -19,6 +19,7 @@
         <activity android:name="id.ac.unipma.eapt.ui.detail.DetailActivity"/>
         <activity android:name=".ui.login.LoginActivity"/>
         <activity android:name=".ui.register.RegisterActivity"/>
+        <activity android:name=".ui.student.StudentActivity"/>
 
         <meta-data
                 android:name="io.fabric.ApiKey"
