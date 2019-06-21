@@ -24,4 +24,9 @@ public interface PreferencesHelper {
     void setName(String name);
     String getName();
 
+    boolean isStepOneDone();
+    void setStepOneDone(boolean isDone);
+
+    boolean isStepTwoDone();
+    void setStepTwoDone(boolean isDone);
 }

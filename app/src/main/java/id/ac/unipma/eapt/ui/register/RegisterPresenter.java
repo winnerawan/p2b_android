@@ -33,6 +33,8 @@ public class RegisterPresenter<V extends RegisterView> extends BasePresenter<V> 
 
     @Override
     public void register(String email, String password, int type) {
+        getMvpView().showLoading();
+
         if (email.isEmpty()) {
             getMvpView().onError(R.string.message_empty_email);
             return;
@@ -49,12 +51,16 @@ public class RegisterPresenter<V extends RegisterView> extends BasePresenter<V> 
                 .observeOn(getSchedulerProvider().ui())
                 .subscribeOn(getSchedulerProvider().io())
                 .subscribe(resp -> {
+                    getMvpView().hideLoading();
+
                     if (resp.getError()) {
                         return;
                     }
                     getMvpView().showMessage(R.string.success_register);
                     getMvpView().gotoLogin();
                 }, throwable -> {
+                    getMvpView().hideLoading();
+
                     if (throwable instanceof ANError) {
                         ANError anError = (ANError) throwable;
                         AppLogger.e(" Error Body = "+anError.getErrorBody());

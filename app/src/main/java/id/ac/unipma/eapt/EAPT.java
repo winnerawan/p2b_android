@@ -46,9 +46,9 @@ public class EAPT extends Application {
         mApplicationComponent.inject(this);
         AppLogger.init();
         AndroidNetworking.initialize(getApplicationContext());
-        if (BuildConfig.DEBUG) {
-            AndroidNetworking.enableLogging(HttpLoggingInterceptor.Level.BODY);
-        }
+//        if (BuildConfig.DEBUG) {
+//            AndroidNetworking.enableLogging(HttpLoggingInterceptor.Level.BODY);
+//        }
 
     }
 

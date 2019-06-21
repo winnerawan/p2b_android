@@ -50,7 +50,7 @@
 
     <ScrollView
             android:background="@color/white"
-            android:layout_above="@id/btnPostCard"
+            android:layout_above="@id/btnPostData"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@id/toolbar">
@@ -71,7 +71,7 @@
             <Spinner
                     android:layout_marginTop="@dimen/padding_16dp"
                     android:background="@drawable/shape_et"
-                    android:id="@+id/spinner_user_type"
+                    android:id="@+id/spinner_programs"
                     android:layout_height="49dp"
                     android:layout_marginBottom="@dimen/padding_16dp"
                     android:layout_width="match_parent" />
@@ -113,8 +113,8 @@
                     android:padding="@dimen/padding_16dp"
                     android:textColor="@color/colorAccent" />
 
-            <EditText
-                    android:id="@+id/location"
+            <TextView
+                    android:id="@+id/dob"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/padding_16dp"
@@ -131,7 +131,7 @@
 
 
     <Button
-            android:id="@+id/btnPostCard"
+            android:id="@+id/btnPostData"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"

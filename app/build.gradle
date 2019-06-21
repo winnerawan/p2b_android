@@ -157,6 +157,10 @@ dependencies {
     implementation 'com.nabinbhandari.android:permissions:3.5'
     implementation 'com.yarolegovich:lovely-dialog:1.1.0'
     implementation 'com.gauravk.bubblenavigation:bubblenavigation:1.0.7'
+    implementation 'com.github.drawers:SpinnerDatePicker:2.0.1'
+    implementation 'com.theartofdev.edmodo:android-image-cropper:2.8.0'
+
+
 
 }
 

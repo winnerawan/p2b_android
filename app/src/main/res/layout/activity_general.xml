@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright (c) 2018. Winnerawan T - All Rights Reserved
+  ~ Unauthorized copying of this file, via any medium is strictly prohibited
+  ~ Proprietary and confidential|
+  ~ Written by Winnerawan T <winnerawan@gmail.com>, September 2018
+  -->
+
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:background="@color/white"
+                android:layout_height="match_parent">
+
+    <!--todo-->
+    <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="fill_parent"
+            android:layout_height="?android:actionBarSize"
+            android:background="@color/white"
+            android:gravity="center"
+            app:contentInsetEnd="@dimen/nol_dp"
+            app:contentInsetLeft="@dimen/nol_dp"
+            app:contentInsetRight="@dimen/nol_dp"
+            app:contentInsetStart="@dimen/nol_dp">
+
+
+        <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:weightSum="1.0">
+
+
+            <TextView
+                    android:text="@string/text_input_data"
+                    android:textColor="#000000"
+                    android:id="@+id/txtToolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left|center_vertical"
+                    android:gravity="center"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+        </LinearLayout>
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <ScrollView
+            android:background="@color/white"
+            android:layout_above="@id/btnPostData"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/toolbar">
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/padding_16dp"
+                android:orientation="vertical">
+
+
+            <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_margin="@dimen/padding_16dp"-->
+            <!--android:orientation="vertical">-->
+
+            <EditText
+                    android:id="@+id/no_reg"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/padding_16dp"
+                    android:background="@drawable/shape_et_post_card"
+                    android:hint="@string/no_reg"
+                    android:imeOptions="actionNext"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:padding="@dimen/padding_16dp"
+                    android:textColor="@color/colorAccent" />
+
+            <EditText
+                    android:id="@+id/nik"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/padding_16dp"
+                    android:background="@drawable/shape_et_post_card"
+                    android:hint="@string/nik"
+                    android:imeOptions="actionNext"
+                    android:inputType="number"
+                    android:maxLines="1"
+                    android:padding="@dimen/padding_16dp"
+                    android:textColor="@color/colorAccent" />
+
+            <EditText
+                    android:imeOptions="actionNext"
+                    android:id="@+id/fullname"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/padding_16dp"
+                    android:background="@drawable/shape_et_post_card"
+                    android:hint="@string/fullname"
+                    android:maxLines="1"
+                    android:padding="@dimen/padding_16dp"
+                    android:textColor="@color/colorAccent" />
+
+            <TextView
+                    android:id="@+id/dob"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/padding_16dp"
+                    android:background="@drawable/shape_et_post_card"
+                    android:hint="@string/dob"
+                    android:padding="@dimen/padding_16dp"
+                    android:textColor="@color/colorAccent" />
+
+            <EditText
+                    android:id="@+id/phone"
+                    android:imeOptions="actionDone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/padding_16dp"
+                    android:background="@drawable/shape_et_post_card"
+                    android:hint="@string/phone"
+                    android:padding="@dimen/padding_16dp"
+                    android:inputType="phone"
+                    android:textColor="@color/colorAccent" />
+
+
+
+
+
+        </LinearLayout>
+    </ScrollView>
+
+
+    <Button
+            android:id="@+id/btnPostData"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/shape_btn_post_card"
+            android:foreground="?android:selectableItemBackground"
+            android:text="@string/save"
+            android:textColor="@color/white" />
+</RelativeLayout>
+
+

@@ -7,12 +7,12 @@ import javax.inject.Singleton;
 
 import id.ac.unipma.eapt.data.db.DbHelper;
 import id.ac.unipma.eapt.data.network.ApiHelper;
-import id.ac.unipma.eapt.data.network.model.AccountResponse;
-import id.ac.unipma.eapt.data.network.model.LoginResponse;
-import id.ac.unipma.eapt.data.network.model.Resp;
+import id.ac.unipma.eapt.data.network.model.*;
 import id.ac.unipma.eapt.data.prefs.PreferencesHelper;
 import id.ac.unipma.eapt.di.ApplicationContext;
 import io.reactivex.Single;
+
+import java.io.File;
 
 /**
  * Copyright 2017 Winnerawan T
@@ -110,8 +110,64 @@ public class AppDataManager implements DataManager {
     }
 
     @Override
-    public Single<AccountResponse> getInfo(int participant_id) {
-        return mApiHelper.getInfo(participant_id);
+    public Single<AccountStudentResponse> getInfoStudent(int participant_id) {
+        return mApiHelper.getInfoStudent(participant_id);
+    }
+
+    @Override
+    public Single<AccountGeneralResponse> getInfoGeneral(int participant_id) {
+        return mApiHelper.getInfoGeneral(participant_id);
+    }
+
+    @Override
+    public Single<BankResponse> getBanks() {
+        return mApiHelper.getBanks();
+    }
+
+    @Override
+    public Single<ProgramStudyResponse> getPrograms() {
+        return mApiHelper.getPrograms();
+    }
+
+    @Override
+    public Single<InputStudentResponse> inputDataStudent(int participant_id, int program_id, String no_reg, String nim, String fullname, String dob) {
+        return mApiHelper.inputDataStudent(participant_id, program_id, no_reg, nim, fullname, dob);
+    }
+
+    @Override
+    public boolean isStepOneDone() {
+        return mPreferencesHelper.isStepOneDone();
+    }
+
+    @Override
+    public void setStepOneDone(boolean isDone) {
+        mPreferencesHelper.setStepOneDone(isDone);
+    }
+
+    @Override
+    public boolean isStepTwoDone() {
+        return mPreferencesHelper.isStepTwoDone();
+    }
+
+    @Override
+    public void setStepTwoDone(boolean isDone) {
+        mPreferencesHelper.setStepTwoDone(isDone);
+    }
+
+    @Override
+    public Single<PayResponse> pay(int participant_id, int bank_id, String no_ref, File proof_image, int status) {
+        return mApiHelper.pay(participant_id, bank_id, no_ref, proof_image, status);
+    }
+
+    @Override
+    public Single<CheckPaymentResponse> checkPayment(int participant_id) {
+        return mApiHelper.checkPayment(participant_id);
+    }
+
+    @Override
+    public Single<InputStudentResponse> inputDataGeneral(int participant_id, String no_reg, String nik, String fullname, String dob, String phone) {
+        return mApiHelper.inputDataGeneral(participant_id, no_reg, nik, fullname, dob, phone);
     }
 }
+
 

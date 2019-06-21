@@ -43,19 +43,25 @@ public class ProgramStudyAdapter extends ArrayAdapter<Program> {
         TextView textView = itemView.findViewById(R.id.txt_account_type);
         textView.setText(userTypes.get(position).getName());
 
-//        ImageView imageView = itemView.findViewById(R.id.icon_account_type);
-//
-//        switch (userTypes.get(position).getName().toLowerCase()) {
-//            case "mahasiswa":
-//                imageView.setImageDrawable(itemView.getResources().getDrawable(R.drawable.ic_type_citizen));
-//                break;
-//            case "umum":
-//                imageView.setImageDrawable(itemView.getResources().getDrawable(R.drawable.ic_type_organization));
-//                break;
-//            default:
-//                imageView.setImageDrawable(itemView.getResources().getDrawable(R.drawable.ic_type_citizen));
-//                break;
-//        }
+        ImageView imageView = itemView.findViewById(R.id.icon_account_type);
+
+        switch (userTypes.get(position).getId()) {
+            case 1:
+                imageView.setImageDrawable(itemView.getResources().getDrawable(R.drawable.ic_toga));
+                break;
+            case 2:
+                imageView.setImageDrawable(itemView.getResources().getDrawable(R.drawable.ic_toga));
+                break;
+            case 3:
+                imageView.setImageDrawable(itemView.getResources().getDrawable(R.drawable.ic_toga));
+                break;
+            case 4:
+                imageView.setImageDrawable(itemView.getResources().getDrawable(R.drawable.ic_toga));
+                break;
+            default:
+                imageView.setImageDrawable(itemView.getResources().getDrawable(R.drawable.ic_toga));
+                break;
+        }
         return itemView;
     }
 

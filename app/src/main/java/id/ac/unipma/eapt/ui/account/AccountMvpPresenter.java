@@ -7,4 +7,10 @@ public interface AccountMvpPresenter<V extends AccountView> extends MvpPresenter
     void decideActivty();
     void getInfo();
     void showEmail();
+
+    void logout();
+
+    void decideActivty2();
+
+    void checkPayment();
 }

@@ -20,6 +20,8 @@ public class LoginPresenter<V extends LoginView> extends BasePresenter<V> implem
 
     @Override
     public void signIn(String email, String pass) {
+        getMvpView().showLoading();
+
         if (email.isEmpty()) {
             getMvpView().onError(R.string.message_empty_email);
         }
@@ -33,13 +35,18 @@ public class LoginPresenter<V extends LoginView> extends BasePresenter<V> implem
                 .observeOn(getSchedulerProvider().ui())
                 .subscribeOn(getSchedulerProvider().io())
                 .subscribe(resp -> {
+                    getMvpView().hideLoading();
+
                     if (resp.getError()) {
                         return;
                     }
-                    saveCredentials(resp.getParticipant().get(0).getId(), resp.getParticipant().get(0).getEmail());
+                    saveCredentials(resp.getParticipant().get(0).getId(), resp.getParticipant().get(0).getEmail(), resp.getParticipant().get(0).getIsStudent());
                     getDataManager().setLoggedIn(true);
                     getMvpView().gotoMainActivity();
+                    getDataManager().setLoggedIn(true);
                 }, throwable -> {
+                    getMvpView().hideLoading();
+
                     if (throwable instanceof ANError) {
                         ANError anError = (ANError) throwable;
                         AppLogger.e(" Error Body = "+anError.getErrorBody());
@@ -54,8 +61,9 @@ public class LoginPresenter<V extends LoginView> extends BasePresenter<V> implem
     }
 
 
-    public void saveCredentials(int id, String name) {
+    public void saveCredentials(int id, String name,int isStudent) {
         getDataManager().setParticipantId(id);
         getDataManager().setName(name);
+        getDataManager().setIsStudent(isStudent);
     }
 }

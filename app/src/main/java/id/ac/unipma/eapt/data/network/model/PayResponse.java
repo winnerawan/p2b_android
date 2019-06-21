@@ -1,17 +1,16 @@
 package id.ac.unipma.eapt.data.network.model;
 
-import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class AccountResponse {
+public class PayResponse {
 
     @SerializedName("error")
     @Expose
     private Boolean error;
-    @SerializedName("student")
+    @SerializedName("payment")
     @Expose
-    private List<Student> student = null;
+    private Pay payment;
 
     public Boolean getError() {
         return error;
@@ -21,11 +20,11 @@ public class AccountResponse {
         this.error = error;
     }
 
-    public List<Student> getStudent() {
-        return student;
+    public Pay getPayment() {
+        return payment;
     }
 
-    public void setStudent(List<Student> student) {
-        this.student = student;
+    public void setPayment(Pay payment) {
+        this.payment = payment;
     }
 }

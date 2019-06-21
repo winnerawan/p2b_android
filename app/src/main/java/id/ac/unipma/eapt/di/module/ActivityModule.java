@@ -8,6 +8,9 @@ import id.ac.unipma.eapt.ui.account.AccountMvpPresenter;
 import id.ac.unipma.eapt.ui.account.AccountPresenter;
 import id.ac.unipma.eapt.ui.account.AccountView;
 import id.ac.unipma.eapt.ui.detail.DetailMvpPresenter;
+import id.ac.unipma.eapt.ui.general.GeneralMvpPresenter;
+import id.ac.unipma.eapt.ui.general.GeneralPresenter;
+import id.ac.unipma.eapt.ui.general.GeneralView;
 import id.ac.unipma.eapt.ui.home.HomeMvpPresenter;
 import id.ac.unipma.eapt.ui.home.HomePresenter;
 import id.ac.unipma.eapt.ui.home.HomeView;
@@ -30,6 +33,9 @@ import id.ac.unipma.eapt.ui.splash.SplashView;
 import id.ac.unipma.eapt.ui.student.StudentMvpPresenter;
 import id.ac.unipma.eapt.ui.student.StudentPresenter;
 import id.ac.unipma.eapt.ui.student.StudentView;
+import id.ac.unipma.eapt.ui.upload.UploadMvpPresenter;
+import id.ac.unipma.eapt.ui.upload.UploadPresenter;
+import id.ac.unipma.eapt.ui.upload.UploadView;
 import id.ac.unipma.eapt.utils.rx.AppSchedulerProvider;
 import id.ac.unipma.eapt.utils.rx.SchedulerProvider;
 
@@ -136,6 +142,21 @@ public class ActivityModule {
         StudentPresenter<StudentView> presenter) {
         return presenter;
     }
+
+    @Provides
+    @PerActivity
+    GeneralMvpPresenter<GeneralView> provideGeneralPresenter(
+            GeneralPresenter<GeneralView> presenter) {
+        return presenter;
+    }
+
+    @Provides
+    @PerActivity
+    UploadMvpPresenter<UploadView> provideUploadPresenter(
+            UploadPresenter<UploadView> presenter) {
+        return presenter;
+    }
+
 
 //    @Provides
 //    MainPagerAdapter provideMainPagerAdapter() {

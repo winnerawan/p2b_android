@@ -2,6 +2,7 @@ package id.ac.unipma.eapt.di.component;
 
 import id.ac.unipma.eapt.ui.account.AccountFragment;
 import id.ac.unipma.eapt.ui.detail.DetailActivity;
+import id.ac.unipma.eapt.ui.general.GeneralActivity;
 import id.ac.unipma.eapt.ui.home.HomeFragment;
 import id.ac.unipma.eapt.ui.login.LoginActivity;
 import id.ac.unipma.eapt.ui.main.MainActivity;
@@ -11,6 +12,7 @@ import dagger.Component;
 import id.ac.unipma.eapt.di.PerActivity;
 import id.ac.unipma.eapt.di.module.ActivityModule;
 import id.ac.unipma.eapt.ui.student.StudentActivity;
+import id.ac.unipma.eapt.ui.upload.UploadActivity;
 
 /**
  * Copyright 2017 Winnerawan T
@@ -38,4 +40,8 @@ public interface ActivityComponent {
     void inject(AccountFragment accountFragment);
 
     void inject(StudentActivity studentActivity);
+
+    void inject(GeneralActivity generalActivity);
+
+    void inject(UploadActivity uploadActivity);
 }

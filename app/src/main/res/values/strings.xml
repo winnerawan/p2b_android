@@ -19,7 +19,7 @@
     <string name="dont_have_account_register">Not Registered? Sign Up Now</string>
     <string name="have_account_login">Already Registered? Sign In</string>
     <string name="text_edit">Edit</string>
-    <string name="text_input_data">Input Data</string>
+    <string name="text_input_data">Form Registration</string>
     <string name="text_upload">Upload</string>
     <string name="text_change_language">Change Language</string>
     <string name="logout">Logout</string>
@@ -29,4 +29,19 @@
     <string name="dob">Date of Birth</string>
     <string name="save">Save</string>
     <string name="success_register">Successfuly Register</string>
+    <string name="error_empty_nim">Please provide a non empty NIM</string>
+    <string name="error_empty_fullname">Please provide a non empty Fullname</string>
+    <string name="error_empty_dob">Please provide a non empty Date of Birth</string>
+    <string name="error_empty_noreg">Please provide a non empty Registration Number!</string>
+    <string name="success_input">Successfully Fillin Registration Form!</string>
+    <string name="already_registered">You have already registered!</string>
+    <string name="error_empty_no_ref">Please provide a non empty No Ref!</string>
+    <string name="no_ref">No Ref</string>
+    <string name="text_send_proof">Send Proof of Payment</string>
+    <string name="error_empty_image">Please choose image!</string>
+    <string name="success_send_payment">Successfully send payment info!</string>
+    <string name="already_send">Already send payment info!</string>
+    <string name="nik">NIK</string>
+    <string name="phone">Phone</string>
+    <string name="error_empty_nik">Please provide a non empty NIK!</string>
 </resources>

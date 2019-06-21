@@ -14,7 +14,10 @@ import butterknife.OnClick;
 import id.ac.unipma.eapt.R;
 import id.ac.unipma.eapt.di.component.ActivityComponent;
 import id.ac.unipma.eapt.ui.base.BaseFragment;
+import id.ac.unipma.eapt.ui.general.GeneralActivity;
+import id.ac.unipma.eapt.ui.login.LoginActivity;
 import id.ac.unipma.eapt.ui.student.StudentActivity;
+import id.ac.unipma.eapt.ui.upload.UploadActivity;
 import id.ac.unipma.eapt.utils.AppLogger;
 
 import javax.inject.Inject;
@@ -26,6 +29,11 @@ public class AccountFragment extends BaseFragment implements AccountView {
 
     @BindView(R.id.userEmail)
     TextView txtEmail;
+
+    @BindView(R.id.userName)
+    TextView txtName;
+    @BindView(R.id.mobileNumber)
+    TextView txtNimNik;
 
     public static AccountFragment newInstance() {
 
@@ -52,16 +60,26 @@ public class AccountFragment extends BaseFragment implements AccountView {
         return view;
     }
 
+    @OnClick(R.id.logOut)
+    void logout() {
+        presenter.logout();
+    }
+
     @OnClick(R.id.container_step1)
     void step1() {
         presenter.decideActivty();
     }
 
+    @OnClick(R.id.container_step2)
+    void step2() {
+        presenter.decideActivty2();
+    }
+
     @Override
     protected void setUp(View view) {
-        presenter.showEmail();
         presenter.getInfo();
-        AppLogger.e("ACCOUNT FRAGMENT");
+        presenter.checkPayment();
+        presenter.showEmail();
     }
 
     @Override
@@ -71,12 +89,37 @@ public class AccountFragment extends BaseFragment implements AccountView {
 
     @Override
     public void gotoGeneral() {
-        //todo
-        startActivity(new Intent(getBaseActivity(), StudentActivity.class));
+        startActivity(new Intent(getBaseActivity(), GeneralActivity.class));
+    }
+
+    @Override
+    public void gotoLogin() {
+        startActivity(new Intent(getBaseActivity(), LoginActivity.class));
+        if (getBaseActivity()!=null) {
+            getBaseActivity().finish();
+        }
+    }
+
+    @Override
+    public void gotoPayment() {
+        startActivity(new Intent(getBaseActivity(), UploadActivity.class));
     }
 
     @Override
     public void showEmail(String email) {
         txtEmail.setText(email);
+    }
+
+    @Override
+    public void showInfo(String fullname, String nim) {
+        txtName.setText(fullname);
+        txtNimNik.setText(nim);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        presenter.checkPayment();
+        presenter.getInfo();
     }
 }

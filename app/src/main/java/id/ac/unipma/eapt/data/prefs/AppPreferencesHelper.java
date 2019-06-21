@@ -24,6 +24,8 @@ public class AppPreferencesHelper implements PreferencesHelper {
     private static final String KEY_IS_STUDENT = "KEY_IS_STUDENT";
     private static final String KEY_NAME = "KEY_NAME";
     private static final String KEY_PARTICIPANT_ID = "KEY_PARTICIPANT_ID";
+    private static final String KEY_STEP1 = "KEY_STEP_ONE";
+    private static final String KEY_STEP2 = "KEY_STEP_TWO";
 
 
     private final SharedPreferences mPrefs;
@@ -82,5 +84,25 @@ public class AppPreferencesHelper implements PreferencesHelper {
     @Override
     public String getName() {
         return mPrefs.getString(KEY_NAME, "");
+    }
+
+    @Override
+    public boolean isStepOneDone() {
+        return mPrefs.getBoolean(KEY_STEP1, false);
+    }
+
+    @Override
+    public void setStepOneDone(boolean isDone) {
+        mPrefs.edit().putBoolean(KEY_STEP1, isDone).apply();
+    }
+
+    @Override
+    public boolean isStepTwoDone() {
+        return mPrefs.getBoolean(KEY_STEP2, false);
+    }
+
+    @Override
+    public void setStepTwoDone(boolean isDoness) {
+        mPrefs.edit().putBoolean(KEY_STEP2, isDoness).apply();
     }
 }
