@@ -5,8 +5,10 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import id.ac.unipma.eapt.R;
@@ -21,6 +23,9 @@ public class AccountFragment extends BaseFragment implements AccountView {
 
     @Inject
     AccountMvpPresenter<AccountView> presenter;
+
+    @BindView(R.id.userEmail)
+    TextView txtEmail;
 
     public static AccountFragment newInstance() {
 
@@ -54,6 +59,8 @@ public class AccountFragment extends BaseFragment implements AccountView {
 
     @Override
     protected void setUp(View view) {
+        presenter.showEmail();
+        presenter.getInfo();
         AppLogger.e("ACCOUNT FRAGMENT");
     }
 
@@ -66,5 +73,10 @@ public class AccountFragment extends BaseFragment implements AccountView {
     public void gotoGeneral() {
         //todo
         startActivity(new Intent(getBaseActivity(), StudentActivity.class));
+    }
+
+    @Override
+    public void showEmail(String email) {
+        txtEmail.setText(email);
     }
 }

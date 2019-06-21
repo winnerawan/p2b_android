@@ -33,7 +33,6 @@ public class SplashActivity extends BaseActivity implements SplashView {
     @Override
     protected void setUp() {
         startSplashAnimation();
-
 //        new Handler().postDelayed(() -> {
 //            mPresenter.onAttach(this);
 //        }, SPLASH_TIME_OUT);

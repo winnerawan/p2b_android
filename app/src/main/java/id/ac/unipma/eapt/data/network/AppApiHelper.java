@@ -2,6 +2,7 @@ package id.ac.unipma.eapt.data.network;
 
 
 import com.rx2androidnetworking.Rx2AndroidNetworking;
+import id.ac.unipma.eapt.data.network.model.AccountResponse;
 import id.ac.unipma.eapt.data.network.model.LoginResponse;
 import id.ac.unipma.eapt.data.network.model.Resp;
 import io.reactivex.Single;
@@ -42,5 +43,12 @@ public class AppApiHelper implements ApiHelper {
                 .addQueryParameter("is_student", String.valueOf(type))
                 .build()
                 .getObjectSingle(Resp.class);
+    }
+
+    @Override
+    public Single<AccountResponse> getInfo(int participant_id) {
+        return Rx2AndroidNetworking.get(ApiEndPoint.ENDPOINT_INFO + participant_id)
+                .build()
+                .getObjectSingle(AccountResponse.class);
     }
 }

@@ -22,4 +22,14 @@ public class AccountPresenter<V extends AccountView> extends BasePresenter<V> im
             getMvpView().gotoGeneral();
         }
     }
+
+    @Override
+    public void showEmail() {
+        getMvpView().showEmail(getDataManager().getName());
+    }
+
+    @Override
+    public void getInfo() {
+
+    }
 }

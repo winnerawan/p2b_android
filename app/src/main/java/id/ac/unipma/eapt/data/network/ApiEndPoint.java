@@ -11,8 +11,9 @@ import id.ac.unipma.eapt.BuildConfig;
 
 public class ApiEndPoint {
 
-    public static final String API_URL = "https://eapt." + BuildConfig.BASE_URL + "/api";
+    public static final String API_URL = "http://eapt." + BuildConfig.BASE_URL + "/api";
     public static final String ENDPOINT_REGISTER = API_URL + "/register";
     public static final String ENDPOINT_LOGIN = API_URL + "/login";
+    public static final String ENDPOINT_INFO = API_URL + "/studentprofile/";
 
 }

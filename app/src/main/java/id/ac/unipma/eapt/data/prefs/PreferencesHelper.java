@@ -18,6 +18,10 @@ public interface PreferencesHelper {
     void setIsStudent(int isStudent);
     int isStudent();
 
+    void setParticipantId(int id);
+    int getParticipantId();
 
+    void setName(String name);
+    String getName();
 
 }

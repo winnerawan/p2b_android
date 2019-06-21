@@ -36,8 +36,9 @@ public class LoginPresenter<V extends LoginView> extends BasePresenter<V> implem
                     if (resp.getError()) {
                         return;
                     }
-                    getMvpView().gotoMainActivity();
+                    saveCredentials(resp.getParticipant().get(0).getId(), resp.getParticipant().get(0).getEmail());
                     getDataManager().setLoggedIn(true);
+                    getMvpView().gotoMainActivity();
                 }, throwable -> {
                     if (throwable instanceof ANError) {
                         ANError anError = (ANError) throwable;
@@ -50,5 +51,11 @@ public class LoginPresenter<V extends LoginView> extends BasePresenter<V> implem
 
                 }));
 
+    }
+
+
+    public void saveCredentials(int id, String name) {
+        getDataManager().setParticipantId(id);
+        getDataManager().setName(name);
     }
 }

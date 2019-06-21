@@ -1,5 +1,6 @@
 package id.ac.unipma.eapt.data.network;
 
+import id.ac.unipma.eapt.data.network.model.AccountResponse;
 import id.ac.unipma.eapt.data.network.model.LoginResponse;
 import id.ac.unipma.eapt.data.network.model.Resp;
 import io.reactivex.Single;
@@ -15,4 +16,5 @@ public interface ApiHelper {
 
     Single<LoginResponse> login(String email, String password);
     Single<Resp> register(String email, String password, int type);
+    Single<AccountResponse> getInfo(int participant_id);
 }

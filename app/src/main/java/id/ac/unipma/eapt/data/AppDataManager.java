@@ -7,6 +7,7 @@ import javax.inject.Singleton;
 
 import id.ac.unipma.eapt.data.db.DbHelper;
 import id.ac.unipma.eapt.data.network.ApiHelper;
+import id.ac.unipma.eapt.data.network.model.AccountResponse;
 import id.ac.unipma.eapt.data.network.model.LoginResponse;
 import id.ac.unipma.eapt.data.network.model.Resp;
 import id.ac.unipma.eapt.data.prefs.PreferencesHelper;
@@ -86,6 +87,31 @@ public class AppDataManager implements DataManager {
     @Override
     public int isStudent() {
         return mPreferencesHelper.isStudent();
+    }
+
+    @Override
+    public void setParticipantId(int id) {
+        mPreferencesHelper.setParticipantId(id);
+    }
+
+    @Override
+    public int getParticipantId() {
+        return mPreferencesHelper.getParticipantId();
+    }
+
+    @Override
+    public void setName(String name) {
+        mPreferencesHelper.setName(name);
+    }
+
+    @Override
+    public String getName() {
+        return mPreferencesHelper.getName();
+    }
+
+    @Override
+    public Single<AccountResponse> getInfo(int participant_id) {
+        return mApiHelper.getInfo(participant_id);
     }
 }
 

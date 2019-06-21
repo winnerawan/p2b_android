@@ -22,6 +22,8 @@ public class AppPreferencesHelper implements PreferencesHelper {
     private static final String KEY_LOGGED_IN = "KEY_LOGGED_IN";
     private static final String KEY_FIRST_TIME = "KEY_FIRST_TIME";
     private static final String KEY_IS_STUDENT = "KEY_IS_STUDENT";
+    private static final String KEY_NAME = "KEY_NAME";
+    private static final String KEY_PARTICIPANT_ID = "KEY_PARTICIPANT_ID";
 
 
     private final SharedPreferences mPrefs;
@@ -60,5 +62,25 @@ public class AppPreferencesHelper implements PreferencesHelper {
     @Override
     public int isStudent() {
         return mPrefs.getInt(KEY_IS_STUDENT, 1);
+    }
+
+    @Override
+    public void setParticipantId(int id) {
+        mPrefs.edit().putInt(KEY_PARTICIPANT_ID, id).apply();
+    }
+
+    @Override
+    public int getParticipantId() {
+        return mPrefs.getInt(KEY_PARTICIPANT_ID, 1);
+    }
+
+    @Override
+    public void setName(String name) {
+        mPrefs.edit().putString(KEY_NAME, name).apply();
+    }
+
+    @Override
+    public String getName() {
+        return mPrefs.getString(KEY_NAME, "");
     }
 }

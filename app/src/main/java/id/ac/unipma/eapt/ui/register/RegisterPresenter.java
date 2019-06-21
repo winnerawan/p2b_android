@@ -52,6 +52,7 @@ public class RegisterPresenter<V extends RegisterView> extends BasePresenter<V> 
                     if (resp.getError()) {
                         return;
                     }
+                    getMvpView().showMessage(R.string.success_register);
                     getMvpView().gotoLogin();
                 }, throwable -> {
                     if (throwable instanceof ANError) {

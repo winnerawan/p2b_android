@@ -37,8 +37,7 @@ public class LoginActivity extends BaseActivity implements LoginView {
 
     @OnClick(R.id.btn_sign_in)
     void signIn() {
-        //presenter.signIn(txtEmail.getText().toString(), txtPass.getText().toString());
-        gotoMainActivity();
+        presenter.signIn(txtEmail.getText().toString(), txtPass.getText().toString());
     }
 
     @OnClick(R.id.register)
@@ -54,5 +53,6 @@ public class LoginActivity extends BaseActivity implements LoginView {
     @Override
     public void gotoMainActivity() {
         startActivity(new Intent(this, MainActivity.class));
+        finish();
     }
 }

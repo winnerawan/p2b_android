@@ -6,4 +6,6 @@ public interface AccountView extends MvpView {
     void gotoStudent();
 
     void gotoGeneral();
+
+    void showEmail(String email);
 }
