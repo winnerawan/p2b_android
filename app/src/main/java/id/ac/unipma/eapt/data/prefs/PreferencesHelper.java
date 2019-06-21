@@ -18,4 +18,6 @@ public interface PreferencesHelper {
     void setIsStudent(int isStudent);
     int isStudent();
 
+
+
 }
