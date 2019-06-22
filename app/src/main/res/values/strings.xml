@@ -44,4 +44,5 @@
     <string name="nik">NIK</string>
     <string name="phone">Phone</string>
     <string name="error_empty_nik">Please provide a non empty NIK!</string>
+    <string name="wrong_auth">Wrong Authentication!</string>
 </resources>

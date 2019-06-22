@@ -159,13 +159,12 @@ dependencies {
     implementation 'com.gauravk.bubblenavigation:bubblenavigation:1.0.7'
     implementation 'com.github.drawers:SpinnerDatePicker:2.0.1'
     implementation 'com.theartofdev.edmodo:android-image-cropper:2.8.0'
-
-
+    implementation 'pl.hypeapp:materialtimelineview:1.1'
 
 }
 
 configurations.all {
     resolutionStrategy.force "com.android.support:support-annotations:$supportLibraryVersion"
 }
-//apply plugin: 'com.google.gms.google-services'
+apply plugin: 'com.google.gms.google-services'
 com.google.gms.googleservices.GoogleServicesPlugin.config.disableVersionCheck = true

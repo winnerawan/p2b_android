@@ -8,15 +8,25 @@
 package id.ac.unipma.eapt.notification;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.util.Log;
 
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
+import com.androidnetworking.AndroidNetworking;
+import com.androidnetworking.error.ANError;
+import com.androidnetworking.interfaces.JSONObjectRequestListener;
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.iid.FirebaseInstanceIdService;
+import com.google.gson.Gson;
+import id.ac.unipma.eapt.data.network.ApiEndPoint;
+import id.ac.unipma.eapt.utils.AppConstants;
+import id.ac.unipma.eapt.utils.AppLogger;
+import org.json.JSONObject;
 
 
 public class HelbFirebaseInstanceIDService extends FirebaseInstanceIdService {
     private static final String TAG = HelbFirebaseInstanceIDService.class.getSimpleName();
+    private String KEY_PARTICIPANT_ID = "KEY_PARTICIPANT_ID";
 
     @Override
     public void onTokenRefresh() {
@@ -24,11 +34,11 @@ public class HelbFirebaseInstanceIDService extends FirebaseInstanceIdService {
         String refreshedToken = FirebaseInstanceId.getInstance().getToken();
 
         // Saving reg id to shared preferences
-        storeRegIdInPref(refreshedToken);
 
         // sending reg id to your server
-        sendFcmTokenToServer(refreshedToken);
-
+        if (getParticipantId()!=0) {
+            sendFcmTokenToServer(refreshedToken);
+        }
         // Notify UI that registration has completed, so the progress indicator can be hidden.
         Intent registrationComplete = new Intent("KEY_REG_COMPLETE");
         registrationComplete.putExtra("token", refreshedToken);
@@ -40,32 +50,32 @@ public class HelbFirebaseInstanceIDService extends FirebaseInstanceIdService {
 //        String api_token = pref.getString(KEY_TOKEN, "");
 //        Log.e(TAG, "sendRegistrationToServer: " + token);
 //
-//        AndroidNetworking.put(ApiEndPoint.UPDATE_FCM_TOKEN)
-//                .setContentType("application/x-www-form-urlencoded")
-//                .addHeaders("Authorization", "Bearer" + api_token)
-//                .addBodyParameter("fcm_token", token)
-//                .build()
-//                .getAsJSONObject(new JSONObjectRequestListener() {
-//                    @Override
-//                    public void onResponse(JSONObject response) {
-//
-//                    }
-//
-//                    @Override
-//                    public void onError(ANError anError) {
-//
-//                    }
-//                });
+        AndroidNetworking.put(ApiEndPoint.ENDPOINT_TOKEN)
+                .addQueryParameter("participant_id", String.valueOf(getParticipantId()))
+                .addQueryParameter("fcm_token", token)
+                .build()
+                .getAsJSONObject(new JSONObjectRequestListener() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        AppLogger.e(new Gson().toJson(response));
+                    }
+
+                    @Override
+                    public void onError(ANError anError) {
+                        AppLogger.e(" Error Body = " + anError.getErrorBody());
+                        AppLogger.e(" Message = " + anError.getMessage());
+                        AppLogger.e(" Response = " + anError.getResponse());
+                        AppLogger.e(" Error Code = " + anError.getErrorCode());
+                    }
+                });
     }
 
-    private void sendRegistrationToServer(final String token) {
-        // sending gcm token to server
-        Log.e(TAG, "sendRegistrationToServer: " + token);
-    }
+    private int getParticipantId() {
+        SharedPreferences pref = getApplicationContext().getSharedPreferences(AppConstants.PREF_NAME, 0);
 
-    private void storeRegIdInPref(String token) {
-//        SharedPreferences pref = getApplicationContext().getSharedPreferences(AppConstants.PREF_NAME, 0);
-//        SharedPreferences.Editor editor = pref.edit();
-//        editor.putString(KEY_FCM_TOKEN, token).apply();
+        AppLogger.e("participant id (notification) =" + pref.getInt(KEY_PARTICIPANT_ID, 1));
+
+        return pref.getInt(KEY_PARTICIPANT_ID, 0);
+
     }
 }

@@ -18,6 +18,7 @@ public class ApiEndPoint {
     public static final String ENDPOINT_INFO_GENERAL = API_URL + "/generalprofile/";
     public static final String ENDPOINT_CHECK = API_URL + "/checkpayment/";
 
+    public static final String ENDPOINT_TOKEN = API_URL + "/token";
 
     public static final String ENDPOINT_BANK = API_URL + "/banks";
     public static final String ENDPOINT_PROGRAM = API_URL + "/programs";

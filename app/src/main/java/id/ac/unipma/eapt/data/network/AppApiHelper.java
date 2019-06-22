@@ -121,4 +121,13 @@ public class AppApiHelper implements ApiHelper {
                 .build()
                 .getObjectSingle(InputStudentResponse.class);
     }
+
+    @Override
+    public Single<TokenResponse> sendToken(int participant_id, String token) {
+        return Rx2AndroidNetworking.put(ApiEndPoint.ENDPOINT_TOKEN)
+                .addQueryParameter("participant_id", String.valueOf(participant_id))
+                .addQueryParameter("fcm_token", token)
+                .build()
+                .getObjectSingle(TokenResponse.class);
+    }
 }

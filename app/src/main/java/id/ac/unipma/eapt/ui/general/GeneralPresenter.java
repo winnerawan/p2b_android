@@ -20,7 +20,6 @@ public class GeneralPresenter<V extends GeneralView> extends BasePresenter<V> im
 
     @Override
     public void sendData(String no_reg, String nik, String fullname, String dob, String phone) {
-        getMvpView().showLoading();
 
         int participant_id = getDataManager().getParticipantId();
         if (nik.isEmpty()) {
@@ -38,6 +37,7 @@ public class GeneralPresenter<V extends GeneralView> extends BasePresenter<V> im
         if (dob.isEmpty()) {
             getMvpView().onError(R.string.error_empty_dob);
         }
+        getMvpView().showLoading();
 
         getCompositeDisposable().add(getDataManager().inputDataGeneral(participant_id, no_reg, nik, fullname, dob, phone)
                 .subscribeOn(getSchedulerProvider().io())

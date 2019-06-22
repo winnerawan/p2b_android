@@ -33,7 +33,6 @@ public class RegisterPresenter<V extends RegisterView> extends BasePresenter<V> 
 
     @Override
     public void register(String email, String password, int type) {
-        getMvpView().showLoading();
 
         if (email.isEmpty()) {
             getMvpView().onError(R.string.message_empty_email);
@@ -45,7 +44,9 @@ public class RegisterPresenter<V extends RegisterView> extends BasePresenter<V> 
         }
         if (password.isEmpty()) {
             getMvpView().onError(R.string.message_empty_password);
+            return;
         }
+        getMvpView().showLoading();
 
         getCompositeDisposable().add(getDataManager().register(email, password, type)
                 .observeOn(getSchedulerProvider().ui())
@@ -54,6 +55,7 @@ public class RegisterPresenter<V extends RegisterView> extends BasePresenter<V> 
                     getMvpView().hideLoading();
 
                     if (resp.getError()) {
+                        getMvpView().onError(R.string.some_error);
                         return;
                     }
                     getMvpView().showMessage(R.string.success_register);

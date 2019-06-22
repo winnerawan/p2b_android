@@ -29,4 +29,6 @@ public interface ApiHelper {
     Single<PayResponse> pay(int participant_id, int bank_id, String no_ref, File proof_image, int status);
 
     Single<CheckPaymentResponse> checkPayment(int participant_id);
+
+    Single<TokenResponse> sendToken(int participant_id, String token);
 }

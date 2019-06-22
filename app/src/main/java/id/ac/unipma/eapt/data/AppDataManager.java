@@ -168,6 +168,11 @@ public class AppDataManager implements DataManager {
     public Single<InputStudentResponse> inputDataGeneral(int participant_id, String no_reg, String nik, String fullname, String dob, String phone) {
         return mApiHelper.inputDataGeneral(participant_id, no_reg, nik, fullname, dob, phone);
     }
+
+    @Override
+    public Single<TokenResponse> sendToken(int participant_id, String token) {
+        return mApiHelper.sendToken(participant_id, token);
+    }
 }
 
 

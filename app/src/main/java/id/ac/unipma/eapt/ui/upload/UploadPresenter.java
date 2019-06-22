@@ -22,7 +22,6 @@ public class UploadPresenter<V extends UploadView> extends BasePresenter<V> impl
 
     @Override
     public void sendProofImage(int bank_id, String no_ref, File proof_image, int status) {
-        getMvpView().showLoading();
         int participant = getDataManager().getParticipantId();
         if (no_ref.isEmpty()) {
             getMvpView().onError(R.string.error_empty_no_ref);
@@ -32,6 +31,7 @@ public class UploadPresenter<V extends UploadView> extends BasePresenter<V> impl
             getMvpView().onError(R.string.error_empty_image);
             return;
         }
+        getMvpView().showLoading();
 
         getCompositeDisposable().add(getDataManager().pay(participant, bank_id, no_ref, proof_image, 0)
                 .observeOn(getSchedulerProvider().ui())

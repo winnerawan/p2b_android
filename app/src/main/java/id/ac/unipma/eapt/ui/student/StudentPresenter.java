@@ -49,7 +49,6 @@ public class StudentPresenter<V extends StudentView> extends BasePresenter<V> im
 
     @Override
     public void sendData(int program_id, String no_reg, String nim, String fullname, String dob) {
-        getMvpView().showLoading();
 
         int participant_id = getDataManager().getParticipantId();
         if (nim.isEmpty()) {
@@ -66,7 +65,9 @@ public class StudentPresenter<V extends StudentView> extends BasePresenter<V> im
         }
         if (dob.isEmpty()) {
             getMvpView().onError(R.string.error_empty_dob);
+            return;
         }
+        getMvpView().showLoading();
 
         getCompositeDisposable().add(getDataManager().inputDataStudent(participant_id, program_id, no_reg, nim, fullname, dob)
                 .subscribeOn(getSchedulerProvider().io())
